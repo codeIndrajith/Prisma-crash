@@ -12,9 +12,64 @@ async function main() {
     // });
 
     // Get all users
-    const users = await prisma.user.findMany();
+    // const users = await prisma.user.findMany({
+    //     include: {
+    //         articles: true
+    //     }
+    // });
 
-    console.log(users);
+    // console.log(users);
+
+    // create article and associate it with user
+    // const article = await prisma.article.create({
+    //     data: {
+    //         title: 'Indrajith first article',
+    //         body: "This is a indrajith first article",
+    //         author: {
+    //             connect: {
+    //                 id: 1,
+    //             }
+    //         }
+    //     }
+    // })
+
+    // Get all articles
+    const articles = await prisma.article.findMany();
+
+    // Create user and article associate them
+    // const user = await prisma.user.create({
+    //     data: {
+    //         name: "Jhone deo",
+    //         email: "jhon@test.com",
+    //         articles: {
+    //             create: {
+    //                 title: "Jhone first article",
+    //                 body: "this is jhone first article"
+    //             }
+    //         }
+    //     }
+    // })
+
+    // Create another article
+    // const article = await prisma.article.create({
+    //     data: {
+    //         title: "Sample article",
+    //         body: "This is a sample article",
+    //         author: {
+    //             connect: {
+    //                 id: 2
+    //             }
+    //         }
+    //     }
+    // })
+
+    // console.log(articles)
+    articles.forEach((article) => {
+        if (article.authorId == 2) {
+            console.log(article)
+        }
+    })
+
 }
 
 main().then(async () => {
