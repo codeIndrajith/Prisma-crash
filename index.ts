@@ -34,7 +34,7 @@ async function main() {
     // })
 
     // Get all articles
-    const articles = await prisma.article.findMany();
+    // const articles = await prisma.article.findMany();
 
     // Create user and article associate them
     // const user = await prisma.user.create({
@@ -64,11 +64,7 @@ async function main() {
     // })
 
     // console.log(articles)
-    articles.forEach((article) => {
-        if (article.authorId == 2) {
-            console.log(article)
-        }
-    })
+
 
 }
 
